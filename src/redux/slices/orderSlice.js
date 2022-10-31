@@ -5,7 +5,7 @@ import { publicRequest, userRequest } from "../../requestMethod";
 export const getOrderUser = createAsyncThunk(
     'order/getOrder',async()=>{
         try {
-            const response = await userRequest.get('/order/all');
+            const response = await userRequest.get('/order');
             return response.data; 
         } catch (error) {
             console.log(error);
@@ -28,7 +28,7 @@ export const createOrderUser = createAsyncThunk(
 export const updateOrderUser = createAsyncThunk(
     'order/updateOrder',async({data,orderId})=>{
         try {
-            const response = await userRequest.put(`/order/update/${orderId}`,data);
+            const response = await userRequest.put(`/order/${orderId}`,data);
             return response.data
         } catch (error) {
             console.log(error);

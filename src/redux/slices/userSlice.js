@@ -17,7 +17,7 @@ export const userLogin = createAsyncThunk(
 
 export const getUserStat = createAsyncThunk(
     'user/userStat', async()=>{
-        const response = await userRequest.get('/userStat'); 
+        const response = await userRequest.get('user/userStat'); 
         return response.data;
     }
 )
