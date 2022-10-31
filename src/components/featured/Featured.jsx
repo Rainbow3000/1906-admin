@@ -21,9 +21,7 @@ const Featured = () => {
 
 
     const date = new Date(); 
-    const monthNow  = date.getMonth() + 1; 
-
-    console.log(monthNow); 
+    const monthNow  = date.getMonth() + 1;  
     let percentOrderThisMonthComparePreMonth;
     let orderThisMonth; 
     let orderPreMonth;
