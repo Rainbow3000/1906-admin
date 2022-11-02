@@ -13,18 +13,18 @@ export const fetchProducts = createAsyncThunk(
         }
     }
 )
-export const createProduct = createAsyncThunk(
-    'product/createProduct',
-    async()=>{
-        const response = await userRequest.post('/create-product'); 
-        return response.data; 
-    }
-)
+// export const createProduct = createAsyncThunk(
+//     'product/createProduct',
+//     async()=>{
+//         const response = await userRequest.post('/create-product'); 
+//         return response.data; 
+//     }
+// )
 export const deleteProduct = createAsyncThunk(
     'product/delete',
     async(productId)=>{
         try {     
-            const response = await userRequest.delete(`/delete-product/${productId}`); 
+            const response = await userRequest.delete(`/product/${productId}`); 
             return response.data; 
         } catch (error) {
             console.log(error);
@@ -37,7 +37,7 @@ export const updateProduct = createAsyncThunk(
     'product/update',
     async({productId,data})=>{
         try {
-            const response = await userRequest.put(`/update-product/${productId}`,data); 
+            const response = await userRequest.put(`/product/${productId}`,data); 
             return response.data; 
         } catch (error) {
             console.log(error); 

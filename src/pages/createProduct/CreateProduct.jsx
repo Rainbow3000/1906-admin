@@ -106,7 +106,6 @@ const CreateProduct = () => {
             setDataUrlImage(reader.result);       
         }
     }
-    console.log(dataUrlImage)
     const handleSubmitForm =(e)=>{
         e.preventDefault(); 
         const data = {
@@ -121,7 +120,7 @@ const CreateProduct = () => {
         }
         const productCreateRequest = async() =>{
             try {
-                const response = await userRequest.post('/create-product',data); 
+                const response = await userRequest.post('/product',data); 
                 console.log(response.data); 
                 setPreviewSource("");
                 setDataUrlImage("");  
