@@ -141,32 +141,9 @@ const OrderList = () => {
   },[dispatch])
   return (
     <>
-      <Paper className='order-list-charts' sx= {{width:"80%",height:'300px'}}>
-          <h3>Order Charts</h3>
-          <div style={{width:'30%',height:5,backgroundColor:'#333',margin:20}}></div>
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            width={500}
-            height={300}
-            data={data}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="success" fill="green" />
-            <Bar dataKey="cancel" fill="orangered" />
-          </BarChart>
-        </ResponsiveContainer>
-      </Paper>
+     
       <Box className='order-list-container'>
-            <h3 style={{textAlign:'center',margin:20}}>List Orders</h3>
+            <h3 style={{textAlign:'center',margin:120}}>List Orders</h3>
         <div style={{ width: '30%', height: 5, backgroundColor: '#333',marginBottom: 20 }}></div>
             <ul>
                 {

@@ -23,7 +23,7 @@ const Product = () => {
 let navigate = useNavigate(); 
 
 const handleDelete = (productId)=>{
-    let text = "Are you sure you want to delete it ?"
+    let text = "Are you sure want to delete it ?"
     if (window.confirm(text) === true) {
          dispatch(deleteProduct(productId)); 
          alert('Delete product success !'); 
