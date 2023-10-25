@@ -51,10 +51,13 @@ const productSlice = createSlice({
     name:'product',
     initialState:{
         products:[],
-        singleProduct:{}
+        singleProduct:{},
+        isLoading:false
     },
     reducers:{
-
+        setIsLoading:(state,action)=>{
+            state.isLoading = action.payload
+        }
     },
     extraReducers:(builder)=>{
         builder.addCase(fetchProducts.fulfilled,(state,action)=>{
@@ -75,5 +78,5 @@ const productSlice = createSlice({
     }
 })
 
-
+export const {setIsLoading} = productSlice.actions; 
 export default productSlice.reducer; 

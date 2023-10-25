@@ -1,15 +1,4 @@
-.create-product-delimiter{
-    width: 200px;
-    height:5px;
-    background-color: #333;
-    margin: 0 auto;
-}
-.create-product-title{
-   text-align: center;
-}
-
-
-.cate-create-input,.select-option-input-create {
+.cate-create-input {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

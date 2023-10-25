@@ -12,6 +12,9 @@ import DetailsOrder from "./pages/detailsOrder/DetailsOrder";
 import Login from "./pages/login/Login";
 import Message from "./pages/message/Message";
 import {useSelector} from 'react-redux'
+import Category from './pages/Category/Category';
+import CategoryCreate from "./pages/Category/CategoryCreate";
+import CategoryUpdate from "./pages/Category/CategoryUpdate";
 import {
   BrowserRouter,
   Routes,
@@ -26,19 +29,21 @@ function App() {
                     {
                       user && <Sidebar />
                     }
-                    <Box sx={{ width: "80%", marginLeft: "20%" }}>
+                    <Box sx={{ width: "85%", marginLeft: "15%" }}>
                       <Box sx={{ width: "100%", display: 'flex', flexDirection: 'column' }}>
                         {user &&<Navbar />}
                       </Box>
-                    <Routes>
-                        <Route path="/" element={<Home />}/>
-                        <Route path="/product" element={  <Product />} />  
+                    <Routes>                
+                        <Route path="/category" element={<Category/>}  />    
+                        <Route path="/" element={  <Product />} />  
                         <Route path="/product/create" element={ <CreateProduct/>} /> 
                         <Route path="/product/product-update/:id" element={ <ProductUpdate />} />
                         <Route path="/order" element={ <OrderList />} /> 
                         <Route path="/order/details/:id" element={ <DetailsOrder/>} />
                         <Route path="/message" element={<Message/>}/>
                         <Route path="/login" element={<Login/>}  />    
+                        <Route path="/category/create" element={<CategoryCreate/>}  />    
+                        <Route path="/category/:id" element={<CategoryUpdate/>}  />    
                     </Routes>
                 </Box>
         </BrowserRouter>

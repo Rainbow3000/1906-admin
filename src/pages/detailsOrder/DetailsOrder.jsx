@@ -19,41 +19,20 @@ const DetailsOrder = () => {
   })
   return (
         <Box className='order-details-container'>
-            <h3>INFO CUSTOMER</h3>
-            <div style={{width:"30%",height:5,backgroundColor:"#333",margin:20}}></div>
-            <Paper className='order-details-table'>
-                  <table>
-                      <tr>
-                        <th>User Id</th>
-                        <th>User Name</th>
-                        <th>Phone</th>
-                        <th>Address</th>
-                        <th>Email</th>
-                      </tr>
-                      <tr>
-                          <td>{userOrder.userId}</td>
-                          <td>{userOrder.userName}</td>
-                          <td>{userOrder.phone}</td>
-                          <td>{userOrder.address}</td>
-                          <td>{userOrder.email}</td>
-                      </tr>
-                  </table>
-            </Paper>
-             <h3 style={{marginTop:20}}>PRODUCT ORDER</h3>
-            <div style={{width:"30%",height:5,backgroundColor:"#333",margin:20}}></div>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      
+
+             <h3 style={{marginTop:20}}>CHI TIẾT ĐƠN HÀNG</h3>
+            
+      <TableContainer style={{border:'1px solid red',marginTop:20}} component={Paper}>
+        <Table sx={{ minWidth: 650,textAlign:'center' }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>STT</TableCell>
-              <TableCell align="center">Product Id</TableCell>
-              <TableCell align="center">Avatar</TableCell>
-              <TableCell align="center">Name</TableCell>
-              <TableCell align="center">Description</TableCell>
-              <TableCell align="center">Size</TableCell>
-              <TableCell align="center">Color</TableCell>
-              <TableCell align="center">Quantity</TableCell>
-              <TableCell align="center">Total</TableCell>
+              <TableCell align="center">Ảnh</TableCell>
+              <TableCell align="center">Tên</TableCell>
+              <TableCell align="center">Mô tả</TableCell>
+              <TableCell align="center">Màu</TableCell>
+              <TableCell align="center">Số lượng</TableCell>
+              <TableCell align="center">Tổng tiền</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -62,29 +41,23 @@ const DetailsOrder = () => {
                 key={row._id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0} }}
               >
-                <TableCell component="th" scope="row">
-                  {index + 1}
-                </TableCell>
-                <TableCell align="right">{row.productId}</TableCell>
-                <TableCell align="right"><img style={{ borderRadius: "50%" }} src={row.image} width={60} height={60} /></TableCell>
-                <TableCell align="right">{row.productName}</TableCell>
-                <TableCell align="right">{row.productDesc}</TableCell>
-                <TableCell align="right">{
-                      row.size
-                }</TableCell>
-                <TableCell align="right">{
+                <TableCell align="center"><img style={{ borderRadius: "50%" }} src={row.image} width={60} height={60} /></TableCell>
+                <TableCell align="center">{row.productName}</TableCell>
+                <TableCell align="center">{row.productDesc}</TableCell>
+              
+                <TableCell align="center">{
                        row.color
                 }</TableCell>
-                <TableCell align="right">{row.quantity}</TableCell>
-                <TableCell align="right">{row.total} $</TableCell>
+                <TableCell align="center">{row.quantity}</TableCell>
+                <TableCell style={{color:'blue'}} align="center">{row.total.toLocaleString('it-IT', {style : 'currency', currency : 'VND'})}</TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
       <Box sx={{mt:10}}>
-        <h3>Total Order :<mark>{userOrder.totalOrder} $</mark></h3>
-        <button>Export To Excel</button>
+        <h3>TỔNG ĐƠN HÀNG :<mark style={{color:'blue'}}>{userOrder.totalOrder.toLocaleString('it-IT', {style : 'currency', currency : 'VND'})} </mark></h3>
+        {/* <button>Xuất Excel</button> */}
       </Box>
         </Box>
   )

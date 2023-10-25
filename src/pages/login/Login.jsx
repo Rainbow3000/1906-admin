@@ -12,8 +12,10 @@ const Login = () => {
   const { register, handleSubmit, formState: { errors },setValue } = useForm();
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
-        if (user) {
+        if (user !== undefined && user !== null) {
             navigate('/');
+        }else {
+          navigate('/login')
         }
     }, [])
   const onSubmit = (data)=>{
@@ -27,29 +29,29 @@ const Login = () => {
 
   return (
      <Box className='login-container'>
-        <img src="https://cdn.pixabay.com/photo/2016/03/27/19/57/cold-1284028_960_720.jpg" className='img-container'/>
-        <h2 style={{zIndex:999999,marginTop:150}}>ADMIN LOGIN</h2>
-          <div style={{ width: '20%', height: 5, backgroundColor: '#333', marginBottom: 20, zIndex: 999999 }}></div>
+        <img src="https://images.acer.com/is/image/acer/conceptd-5-laptop-banner-l?$responsive$" className='img-container'/>
+        <h2 style={{zIndex:999999,marginTop:150,color:'gray',marginBottom:50}}>TRANG QUẢN TRỊ</h2>
+         
         <Paper className='login-container-main'>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <span style={{textAlign:'center',color:'red',marginTop:10}}>{errorMessage.login}</span>
                     <label>Email</label>
-                    <span className='error-login'>{errors.email?.type==="required" && "Email is required !"}</span>
-                    <span className='error-login'>{errors.email?.type === "pattern" && "email is invalid!"}</span>
-                    <input name='email' type="email" placeholder='Your email...' {...register("email",{
+                    <span className='error-login'>{errors.email?.type==="required" && "Email không được để trống !"}</span>
+                    <span className='error-login'>{errors.email?.type === "pattern" && "Email không hợp lệ"}</span>
+                    <input name='email' type="email" placeholder='Email...' {...register("email",{
                         required: true,pattern: /^[A-Z0-9 ._%+-]+@[A-Z0-9 .-]+\.[A-Z]{2,}$/i
                     })}/>
                 </div>
                  <div>
-                    <label>Password</label>
-                    <span className='error-login'>{errors.password?.type === "required" && "Password is required !"}</span>
-                    <span className='error-login'>{errors.password?.type === "minLength" && "Password must be least 8 character!"}</span>
-                    <input onChange={e=>setValue("password",e.target.value)} name='password' type="password" placeholder='Your password...' {...register("password",{
+                    <label>Mật khẩu</label>
+                    <span className='error-login'>{errors.password?.type === "required" && "Mật khẩu không được để trống !"}</span>
+                    <span className='error-login'>{errors.password?.type === "minLength" && "Mật khẩu phải ít nhất 8 ký tự!"}</span>
+                    <input onChange={e=>setValue("password",e.target.value)} name='password' type="password" placeholder='Mật khẩu ...' {...register("password",{
                         required:true,minLength:8
                     })}/>
                 </div>
-                <button>LOGIN</button>
+                <button>ĐĂNG NHẬP</button>
             </form>
         </Paper>
      </Box>

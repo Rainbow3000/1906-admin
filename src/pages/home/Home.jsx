@@ -28,19 +28,9 @@ const Home = () => {
   return (
     <Box sx={{width:"100%"}}>
         <Box sx={{display:"flex",justifyContent:'space-between',width:'100%',flexDirection:'column'}}>
-              <Featured/>
-              <Box sx={{marginTop:5,padding:5}}>
-                  <Grid spacing={2} container sx={{color:'black',display:'flex'}}>
-                      <Grid item sx={{flex:1}}>
-                        <ListUser/>
-                      </Grid>
-                      <Grid item sx={{flex:1}} >
-                        <UserChart/>
-                      </Grid>
-                  </Grid>
-              </Box>
-            </Box>
+            
         </Box>
+    </Box>
   )
 }
 

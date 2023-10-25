@@ -43,6 +43,10 @@ const userSlice = createSlice({
         builder.addCase(userLogin.pending,(state,action)=>{
             state.isLogin = true; 
         }).addCase(userLogin.fulfilled,(state,action)=>{
+            if(action.payload.isAdmin === false){
+                alert('Tài khoản không được phép !');
+                return;  
+            }
             localStorage.setItem('user',JSON.stringify(action.payload));
             state.user = action.payload;
             state.isLogin = false

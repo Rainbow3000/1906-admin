@@ -25,37 +25,10 @@ const Navbar = () => {
   return (
       <Box sx={{backgroundColor:'white'}}>
           <Box>
-              <AppBar sx={{ width:"80%", backgroundColor:"#333",top:0}} position="fixed">
-                    <Toolbar>
-                            <IconButton sx={{color:'white'}}>
-                                <MenuIcon/>
-                            </IconButton>
-                            <Typography variant="h6" component="div">
-                                Dashboard
-                            </Typography>
-                            <Paper component="form"  sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400,marginLeft:20,flexGrow:1 }}>
-                                <InputBase sx={{ ml: 1, flex: 1 }}
-                                    placeholder="Search here... "
-                                    inputProps={{ 'aria-label': 'search' }}>
-                                </InputBase>
-                                <IconButton sx={{ p: '10px' }} aria-label="menu">
-                                    <SearchIcon/>
-                                </IconButton>
-                            </Paper>
-                             <Box sx={{width:"30%",display:'flex',justifyContent:"flex-end"}}>                                   
-                                <IconButton edge="start" sx={{marginRight:5}}>
-                                    <Badge badgeContent={messages.length} color="error" sx={{cursor:'pointer' }}>
-                                  <Link to="/message"><EmailOutlinedIcon sx={{ color: "white" }} /></Link>   
-                                    </Badge>
-                                </IconButton>
-                                <IconButton sx={{marginRight:5}}>
-                                    <Badge badgeContent={3} color="error" sx={{cursor:'pointer' }}>
-                                        <NotificationsNoneOutlinedIcon sx={{color:"white"}}/>   
-                                    </Badge>  
-                                </IconButton>
-                                <IconButton>
-                                    <AccountCircleOutlinedIcon sx={{cursor: 'pointer',color:"white" }} />                       
-                                </IconButton>
+              <AppBar sx={{ width:"85%", backgroundColor:"#333",top:0}} position="fixed">
+                    <Toolbar>                   
+                             <Box sx={{width:"100%",display:'flex',justifyContent:"flex-end",alignItems:'center'}}>                                   
+                                 <span>ĐĂNG XUẤT</span>
                                 <IconButton onClick={handleLogout}>
                                     <LogoutOutlinedIcon sx={{ cursor: 'pointer', color: "white" }} />
                                 </IconButton>
